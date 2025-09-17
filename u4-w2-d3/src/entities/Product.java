@@ -10,7 +10,7 @@ public class Product {
     private Double price;
 
     //Costruttori
-    public Product(Long id, String name, String category, Double price){
+    public Product(Long id, String name, String category, Double price) {
         this.id = id;
         this.name = name;
         this.category = category;

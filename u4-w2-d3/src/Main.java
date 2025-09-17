@@ -97,7 +97,7 @@ public class Main {
 
         //1.2 Ottenere una lista di ordini con prodotti che appartengono alla categoria <<Baby>>
         Predicate<Product> categoryBaby = product -> product.getCategory().contains("Baby");
-        List<Product> babyProduct =  listaProdotti.stream().filter(categoryBaby).toList();
+        List<Product> babyProduct = listaProdotti.stream().filter(categoryBaby).toList();
         List<Order> babyOrder = listaOrdini.stream().filter(order -> order.getProducts().equals(babyProduct)).toList();
         System.out.println("Lista degli ordini dei prodotti con categoria 'Baby': ");
         System.out.println(babyOrder);
@@ -110,7 +110,7 @@ public class Main {
         System.out.println(boysProduct);
 
         //1.4 Ottenere una lista di prodotti ordinati da clienti di livello (tier2) tra l'01-Feb-2021 e l'01-Apr-2021
-        LocalDate first = LocalDate.of(2021,02,01);
+        LocalDate first = LocalDate.of(2021, 02, 01);
         Predicate<Order> tierLevel2 = order -> order.getCustomer().getTier().equals(2);
         //List<Order> orderListTier2 = listaOrdini.stream().filter(tierLevel2.and()).allMatch(order -> order.getOrderDate().equals(first)).toList();
         //System.out.println("Lista di prodotti ordinati da clienti di livello 'tier 2': ");
