@@ -32,7 +32,6 @@ public class Main {
             listaProdotti.add(detailsProduct.get());
         }
 
-
         Supplier<Customer> detailsCustomer = () -> {
             System.out.println("| - Dettagli cliente:");
             System.out.println("ID:");
@@ -98,7 +97,7 @@ public class Main {
         //1.2 Ottenere una lista di ordini con prodotti che appartengono alla categoria <<Baby>>
         Predicate<Product> categoryBaby = product -> product.getCategory().contains("Baby");
         List<Product> babyProduct = listaProdotti.stream().filter(categoryBaby).toList();
-        List<Order> babyOrder = listaOrdini.stream().filter(order -> order.getProducts().equals(babyProduct)).toList();
+        List<Order> babyOrder = listaOrdini.stream().filter(order -> order.getProducts().stream().filter(product -> product.getCategory().equals("Baby")).isParallel()).toList();
         System.out.println("Lista degli ordini dei prodotti con categoria 'Baby': ");
         System.out.println(babyOrder);
 
